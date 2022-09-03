@@ -11,6 +11,7 @@
 `python3 -m venv dc`
 
 接下來啟動這個虛擬環境：
+
 Windows
 
 `dc\Scripts\activate.bat`
