@@ -1,6 +1,6 @@
-#說明
+# 說明
 這是一個ㄐㄐDC機器人，他會做的事很少。
-#前置作業
+# 前置作業
 一定要安裝python3。
 
 下載之後解壓縮，
@@ -10,8 +10,10 @@
     python3 -m venv dc
 接下來啟動這個虛擬環境：
 - Windows
+
     dc\Scripts\activate.bat
 - Unix/MacOS
+
     source dc/bin/activate
 最後用pip安裝discord.py：
     pip3 install discord
@@ -20,7 +22,7 @@
 TOKEN一定要改就對了。
 這樣應該就可以了。
 
-#啟動機器人
+# 啟動機器人
 做完前置作業後，一樣移動到Painpaver的目錄並啟動虛擬環境，然後直接跑bot.py：
     python3 bot.py
 
