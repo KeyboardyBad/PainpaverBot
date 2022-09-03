@@ -34,7 +34,7 @@ TOKEN一定要改就對了。
 這樣應該就可以了。
 
 # 啟動機器人
-做完前置作業後，一樣移動到Painpaver的目錄並啟動虛擬環境，然後直接跑bot.py：
+做完前置作業後，一樣移動到PainpaverBot的目錄並啟動虛擬環境，然後直接跑bot.py：
 
 `python3 bot.py`
 
