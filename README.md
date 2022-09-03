@@ -5,7 +5,9 @@
 
 下載之後解壓縮，
 打開終端機，移動到這個PainpaverBot的目錄：
-    cd path/to/PainpaverBot
+
+`cd path/to/PainpaverBot`
+
 然後建立一個虛擬環境，名稱舉例dc：
 
 `python3 -m venv dc`
@@ -27,6 +29,7 @@
 大部分要改的變數都在程式很上面的地方，有用到的就改一改，沒用到的可以不改，但是我不知道會不會壞掉。
 
 TOKEN一定要改就對了。
+
 
 這樣應該就可以了。
 
