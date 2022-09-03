@@ -9,13 +9,16 @@
 然後建立一個虛擬環境，名稱舉例dc：
 
 `python3 -m venv dc`
+
 接下來啟動這個虛擬環境：
-- Windows
-- 
+Windows
+
 `dc\Scripts\activate.bat`
-- Unix/MacOS
-- 
+
+Unix/MacOS
+
 `source dc/bin/activate`
+
 最後用pip安裝discord.py：
 
 `pip3 install discord`
