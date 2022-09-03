@@ -12,11 +12,11 @@
 
 接下來啟動這個虛擬環境：
 
-> Windows
+> 如果是Windows
 
 `dc\Scripts\activate.bat`
 
-> Unix/MacOS
+> 如果是Unix/MacOS
 
 `source dc/bin/activate`
 
