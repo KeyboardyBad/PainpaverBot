@@ -41,6 +41,25 @@ async def arstarst(ctx):
 async def echo(ctx, *, args):
     """for test purposes"""
     await ctx.channel.send(args)
+
+@bot.command()
+async def start(ctx):
+    """開始祝人生日快樂"""
+    if happy_birthday.is_running():
+        await ctx.channel.send("已經開始了")
+    else:
+        happy_birthday.start()
+        await ctx.channel.send("開始了")
+
+@bot.command()
+async def stop(ctx):
+    """暫停祝人生日快樂"""
+    if not happy_birthday.is_running():
+        await ctx.channel.send("還沒開始")
+    else:
+        happy_birthday.stop()
+        await ctx.channel.send("停了")
+
 @bot.group()
 async def status(ctx):
     """正在..."""
@@ -70,13 +89,11 @@ async def listen(ctx, *, name):
 
 @tasks.loop(seconds = 5)
 async def happy_birthday():
-    for i in range(12):
-        await bot.get_channel(hb_channel_id).send(hb_role + "生日快樂！")
-        bot.hbtimes+=1
-        sys.stdout.flush();print(f"\r{strftime('%Y-%m-%d %H:%M:%S', localtime())}\t祝完了第{bot.hbtimes}次\t", end="")
-        if all([c == "0" for c in str(bot.hbtimes)[1:]]):
-            print(f"\n{strftime('%Y-%m-%d %H:%M:%S', localtime())}\t祝完了第{bot.hbtimes}次\t", end="")
-        await asyncio.sleep(5)
+    await bot.get_channel(hb_channel_id).send(hb_role + "生日快樂！")
+    bot.hbtimes+=1
+    sys.stdout.flush();print(f"\r{strftime('%Y-%m-%d %H:%M:%S', localtime())}\t祝完了第{bot.hbtimes}次\t", end="")
+    if all([c == "0" for c in str(bot.hbtimes)[1:]]):
+        print(f"\n{strftime('%Y-%m-%d %H:%M:%S', localtime())}\t祝完了第{bot.hbtimes}次\t", end="")
 
 @bot.group()
 async def this_is(ctx):
