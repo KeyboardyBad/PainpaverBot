@@ -24,12 +24,18 @@
 
 最後用pip安裝discord.py：
 
-`pip3 install discord`
 
 大部分要改的變數都在程式很上面的地方，有用到的就改一改，沒用到的可以不改，但是我不知道會不會壞掉。
 
 TOKEN一定要改就對了。
 
+> 如果是Windows
+
+`py -3 -m pip install -U discord.py`
+
+> 如果是Unix/MacOS
+
+`python3 -m pip install -U discord.py`
 
 這樣應該就可以了。
 
