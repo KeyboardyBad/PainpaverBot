@@ -1,7 +1,7 @@
 # 說明
 這是一個ㄐㄐDC機器人，他會做的事很少。
 # 前置作業
-一定要安裝python3。
+一定要安裝python3，以下步驟Windows沒有反應的話，要從Microsoft Store下載Python。
 
 下載之後解壓縮，
 打開終端機，移動到這個PainpaverBot的目錄：
