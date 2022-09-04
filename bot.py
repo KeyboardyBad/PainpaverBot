@@ -19,7 +19,7 @@ bot.hbtimes = 0
 @bot.event
 async def on_ready():
     print('Logged on as {0}!'.format(bot.user))
-    #happy_birthday.start()
+    happy_birthday.start()
 
 """@bot.command()
 async def cap(ctx):
