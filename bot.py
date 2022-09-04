@@ -10,12 +10,16 @@ intents.guilds = intents.members = True
 TOKEN = "TOKEN"
 log_channel_id = 0 #把這個改成log頻道（例如管理員的頻道）的ID
 hb_channel_id = 0 #把這個改成祝人生日快樂的頻道的ID
-hb_role_id = 0 #把這個改成今年壽星身分組的ID（格式為"<@&123456789>"）
+hb_role = 0 #把這個改成今年壽星身分組的ID（格式為"<@&123456789>"）
 description = "原本是搞人用的，現在沒人可搞，改邪歸正，然後開源了（笑臉表符）"
 bot = commands.Bot(command_prefix="^", description=description, intents=intents)
 
 bot.running = True
 bot.hbtimes = 0
+@bot.event
+async def on_ready():
+    print('Logged on as {0}!'.format(bot.user))
+    #happy_birthday.start()
 
 """@bot.command()
 async def cap(ctx):
