@@ -44,4 +44,8 @@ TOKEN一定要改就對了。
 
 `python3 bot.py`
 
+python3不行就用
+
+`python bot.py`
+
 大概就這樣，有bug再說。
