@@ -5,7 +5,7 @@ from discord.ext import commands, tasks
 from time import localtime, strftime, sleep
 from datetime import datetime
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.guilds = intents.members = True
 TOKEN = "TOKEN"
 log_channel_id = 0 #把這個改成log頻道（例如管理員的頻道）的ID
