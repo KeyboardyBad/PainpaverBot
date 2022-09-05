@@ -47,7 +47,13 @@ async def echo(ctx, *, args):
 @bot.command()
 async def pick(ctx, n: int, *choices):
     """從多個選項中隨機選出n個"""
-    await ctx.channel.send("結果為："+ "、".join(random.sample(choices, n)))
+    if len(choices)<=0:
+        await ctx.channel.send("只能取出正整數個選項！")
+    elif len(choices)>n:
+        await ctx.channel.send("選項太少！")
+    else:
+        await ctx.channel.send("結果為："+ "、".join(random.sample(choices, n)))
+        
 @bot.command()
 async def start(ctx):
     """開始祝人生日快樂"""
