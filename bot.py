@@ -5,6 +5,7 @@ import asyncio
 from discord.ext import commands, tasks
 from time import localtime, strftime, sleep
 from datetime import datetime
+from gg3be0 import asiagodtonelist
 
 intents = discord.Intents.all()
 intents.guilds = intents.members = True
@@ -19,13 +20,14 @@ bot.hbtimes = 0
 @bot.event
 async def on_ready():
     print('Logged on as {0}!'.format(bot.user))
-    happy_birthday.start()
+    #happy_birthday.start()
 
 """@bot.command()
 async def cap(ctx):
     '''會考倒數'''
     d = datetime(2022, 5, 21, 8, 20, 0)-datetime.now()
     await ctx.channel.send(f"距離`2022/5/21 8:20:00`\n還有`{d.days}`天`{d.seconds//3600}`小時`{d.seconds%3600//60}`分鐘`{d.seconds%60}`秒")""" #其實是111會考倒數
+
 @bot.command()
 async def 斷(ctx):
     """接龍萬用"""
@@ -44,16 +46,40 @@ async def echo(ctx, *, args):
     """for test purposes"""
     await ctx.channel.send(args)
 
+def PartOfDay(h):
+    if h == 23 or h < 5 :
+        return "凌晨"
+    elif h == 5 :
+        return "清晨"
+    elif h < 11 :
+        return "早晨"
+    elif h < 13 :
+        return "中午"
+    elif h < 17 :
+        return "下午"
+    else:
+        return "傍晚" if h < 19 else "晚上"
 @bot.command()
-async def pick(ctx, n: int, *choices):
+async def rip(ctx, dead: str, life:str):
+    """我們摯愛的（下略）"""
+    await ctx.channel.send(f"我們摯愛的{dead}，於{datetime.now().strftime('西元%Y年%m月%d日')}{PartOfDay(datetime.now().hour)}，悄悄的離開這個世界，我們痛徹心扉，就僅僅一眨眼的時間，天人永隔。{dead}安祥的走完了{life}，他彷彿在沉睡中做了一個美夢，夢醒了，留下陪伴我們成長過程中的點點滴滴，留下我們永恆的追思與感恩。")
+
+@bot.command()
+async def asiagodtone(ctx):
+    """隨機統神文"""
+    await ctx.send(random.choice(asiagodtonelist))
+
+@bot.hybrid_command()
+async def pick(ctx, n: int, choices: str):
     """從多個選項中隨機選出n個"""
+    c = choices.split(" ")
     if n<=0:
         await ctx.channel.send("只能取出正整數個選項！")
-    elif len(choices)<n:
+    elif len(c)<n:
         await ctx.channel.send("選項太少！")
     else:
-        await ctx.channel.send("結果為："+ "、".join(random.sample(choices, n)))
-        
+        await ctx.channel.send("結果為："+ "、".join(random.sample(c, n)))
+
 @bot.command()
 async def start(ctx):
     """開始祝人生日快樂"""
