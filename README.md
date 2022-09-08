@@ -1,5 +1,8 @@
 # 說明
 這是一個ㄐㄐDC機器人，他會做的事很少。
+
+`gg3be0.py`是我收集統神文的地方，寫成list格式，不要機器人只要統神文的也可以。
+
 # 前置作業
 一定要安裝python3，以下步驟Windows沒有反應的話，要從Microsoft Store下載Python。
 
