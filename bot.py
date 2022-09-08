@@ -62,14 +62,19 @@ def PartOfDay(h):
 @bot.command()
 async def rip(ctx, dead: str, life:str):
     """我們摯愛的（下略）"""
-    await ctx.channel.send(f"我們摯愛的{dead}，於{datetime.now().strftime('西元%Y年%m月%d日')}{PartOfDay(datetime.now().hour)}，悄悄的離開這個世界，我們痛徹心扉，就僅僅一眨眼的時間，天人永隔。{dead}安祥的走完了{life}，他彷彿在沉睡中做了一個美夢，夢醒了，留下陪伴我們成長過程中的點點滴滴，留下我們永恆的追思與感恩。")
+    await ctx.channel.send(f"我們摯愛的{dead}，於{datetime.now().strftime('西元%Y年%m月%d日')}{PartOfDay(datetime.now().hour)}，悄悄的離開這個世界，我們痛徹心扉，就僅僅一眨眼的時間，天人永隔。{dead}安祥的{life}，他彷彿在沉睡中做了一個美夢，夢醒了，留下陪伴我們成長過程中的點點滴滴，留下我們永恆的追思與感恩。")
+
+@bot.group()
+async def asiagodtone(ctx):
+    """古老到現代的各種統神文"""
+    if ctx.invoked_subcommand is None:
+        await ctx.send(embed=discord.Embed(description=random.choice(asiagodtonelist)))
+@asiagodtone.command()
+async def count(ctx):
+    """目前統神文數量"""
+    await ctx.send(f"目前收錄{len(asiagodtonelist)}篇統文")
 
 @bot.command()
-async def asiagodtone(ctx):
-    """隨機統神文"""
-    await ctx.send(random.choice(asiagodtonelist))
-
-@bot.hybrid_command()
 async def pick(ctx, n: int, choices: str):
     """從多個選項中隨機選出n個"""
     c = choices.split(" ")
