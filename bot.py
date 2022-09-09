@@ -67,12 +67,17 @@ async def rip(ctx, dead: str, life:str):
 @bot.group()
 async def asiagodtone(ctx):
     """古老到現代的各種統神文"""
+    gg3be0 = open('gg3be0.txt') #我不覺得每次使用指令都要存取超大檔案是個好主意，但我沒想到別的解決方案
+    global asiagodtonelist
+    asiagodtonelist = eval(gg3be0.read())
+    gg3be0.close()
     if ctx.invoked_subcommand is None:
         await ctx.send(embed=discord.Embed(description=random.choice(asiagodtonelist)))
 @asiagodtone.command()
 async def count(ctx):
     """目前統神文數量"""
     await ctx.send(f"目前收錄{len(asiagodtonelist)}篇統文")
+
 
 @bot.command()
 async def pick(ctx, n: int, choices: str):
